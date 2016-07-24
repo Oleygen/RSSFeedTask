@@ -6,8 +6,12 @@
 //  Copyright © 2016 Gennady. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
-class NewsRecord: NSObject {
-
+ class NewsRecord: NSObject {
+    var title : String?
+    var newsDescription: String?
+    var date : String?
+    var link : String?
+    var content : String?
 }

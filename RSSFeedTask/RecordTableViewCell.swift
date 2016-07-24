@@ -6,8 +6,12 @@
 //  Copyright © 2016 Gennady. All rights reserved.
 //
 
-import Cocoa
+import UIKit
 
 class RecordTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var detailsLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    
 }
