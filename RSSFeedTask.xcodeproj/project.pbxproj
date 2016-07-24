@@ -17,7 +17,26 @@
 		58DCBB901D3F027C00B6DA25 /* NewsRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DCBB8F1D3F027C00B6DA25 /* NewsRecord.swift */; };
 		58DCBB921D3F043C00B6DA25 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DCBB911D3F043C00B6DA25 /* DetailsViewController.swift */; };
 		58DCBB941D3F0B9900B6DA25 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DCBB931D3F0B9900B6DA25 /* Parser.swift */; };
+		58E5356C1D4515DA002D9545 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E5356A1D4515DA002D9545 /* Realm.framework */; };
+		58E5356D1D4515DA002D9545 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58E5356A1D4515DA002D9545 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		58E5356E1D4515DA002D9545 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58E5356B1D4515DA002D9545 /* RealmSwift.framework */; };
+		58E5356F1D4515DA002D9545 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 58E5356B1D4515DA002D9545 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58E535701D4515DA002D9545 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				58E5356F1D4515DA002D9545 /* RealmSwift.framework in Embed Frameworks */,
+				58E5356D1D4515DA002D9545 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		58DCBB751D3EFA6900B6DA25 /* RSSFeedTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSSFeedTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +51,8 @@
 		58DCBB8F1D3F027C00B6DA25 /* NewsRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsRecord.swift; sourceTree = "<group>"; };
 		58DCBB911D3F043C00B6DA25 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		58DCBB931D3F0B9900B6DA25 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		58E5356A1D4515DA002D9545 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		58E5356B1D4515DA002D9545 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58E5356E1D4515DA002D9545 /* RealmSwift.framework in Frameworks */,
+				58E5356C1D4515DA002D9545 /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +71,8 @@
 		58DCBB6C1D3EFA6900B6DA25 = {
 			isa = PBXGroup;
 			children = (
+				58E5356A1D4515DA002D9545 /* Realm.framework */,
+				58E5356B1D4515DA002D9545 /* RealmSwift.framework */,
 				58DCBB771D3EFA6900B6DA25 /* RSSFeedTask */,
 				58DCBB761D3EFA6900B6DA25 /* Products */,
 			);
@@ -89,6 +114,7 @@
 				58DCBB711D3EFA6900B6DA25 /* Sources */,
 				58DCBB721D3EFA6900B6DA25 /* Frameworks */,
 				58DCBB731D3EFA6900B6DA25 /* Resources */,
+				58E535701D4515DA002D9545 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -271,6 +297,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RSSFeedTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Oleygen.RSSFeedTask;
@@ -282,6 +312,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = RSSFeedTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Oleygen.RSSFeedTask;
@@ -308,6 +342,7 @@
 				58DCBB8C1D3EFA6900B6DA25 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

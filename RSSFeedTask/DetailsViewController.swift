@@ -14,14 +14,7 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
-        let session = NSURLSession(configuration: sessionConfig)
-        session.dataTaskWithURL(NSURL(string: link!)!) { (data, response, error) in
-        
-            var str = String(data: data!, encoding: NSUTF8StringEncoding)
-            	print(str)
-
-        }.resume()
+  
         
         
     }

@@ -112,7 +112,29 @@ protocol ParserDelegate {
         }
     
         if ( elementName == "link") {
+            
+            
             record?.link = link! as String
+            guard (record?.link != nil) else {
+                return
+            }
+            imageLinkFromLink((record?.link)!){ (data, response, error) in
+                
+                guard (data != nil) else {return}
+                let pageString = String(data: data!, encoding: NSUTF8StringEncoding)
+                let pageNSString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+
+                let regex = try! NSRegularExpression(pattern:"<img.*?src=\"https://([^\"]*)\"", options: .CaseInsensitive)
+                
+                let results = regex.matchesInString(pageString! as String, options: NSMatchingOptions.WithTransparentBounds, range: NSMakeRange(0,(pageString?.characters.count)!))
+
+                let range = results.first?.range
+                guard range != nil else {return}
+                let res = pageNSString?.substringWithRange(range!)
+                
+                print(res)
+                
+            }
             return
         }
         
@@ -124,5 +146,15 @@ protocol ParserDelegate {
         if ( elementName == "item") {
             self.delegate?.recordHasBeenParsed(record!)
         }
+    }
+    
+    func imageLinkFromLink(link : String, completionHandler: (NSData?, NSURLResponse?, NSError?) -> Void) {
+        let sessionConfig = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: sessionConfig)
+        session.dataTaskWithURL(NSURL(string: link)!) {  (data, response, error) in
+                    completionHandler(data, response, error)
+            
+            }.resume()
+        return
     }
 }
