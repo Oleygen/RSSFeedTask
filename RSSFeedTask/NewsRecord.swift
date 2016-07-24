@@ -6,12 +6,15 @@
 //  Copyright © 2016 Gennady. All rights reserved.
 //
 
+import RealmSwift
+
 import Foundation
 
- class NewsRecord: NSObject {
-    var title : String?
-    var newsDescription: String?
-    var date : String?
-    var link : String?
-    var content : String?
+ class NewsRecord: Object {
+    
+    dynamic var title : String = ""
+    dynamic var newsDescription : String = ""
+    dynamic var date : String = ""
+    dynamic var link : String = ""
+    dynamic var content : String = ""
 }

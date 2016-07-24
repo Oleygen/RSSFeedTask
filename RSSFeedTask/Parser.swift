@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import RealmSwift
+
 
 protocol ParserDelegate {
     func recordHasBeenParsed(record:NewsRecord)
@@ -29,6 +31,9 @@ protocol ParserDelegate {
     private var content : NSMutableString?
 
     private var currentProperty : NSMutableString?
+    
+    let realm = try! Realm()
+
     
     //MARK: interface methods
     
@@ -122,6 +127,9 @@ protocol ParserDelegate {
         }
         
         if ( elementName == "item") {
+            try! realm.write() {
+                realm.add(record!)
+            }
             self.delegate?.recordHasBeenParsed(record!)
         }
     }

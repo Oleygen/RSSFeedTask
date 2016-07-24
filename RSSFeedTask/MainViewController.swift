@@ -7,14 +7,15 @@
 //
 
 import UIKit
-
+import RealmSwift
 class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ParserDelegate {
 
     @IBOutlet private weak var tableView: UITableView!
     private  let mainToDetailsSegueIdentifier = "mainToDetails"
     private let cellIdentifier = "cell"
-    private var feeds = Array<NewsRecord>()
-    
+    var feeds = try! Realm().objects(NewsRecord)
+    let realm = try! Realm()
+
     // MARK: ViewController lifecycle
     
     override func viewDidLoad() {
@@ -22,11 +23,12 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        let parser = Parser()
-        parser.setupParser()
-        parser.delegate = self
-        parser.parse()
-        
+//        let parser = Parser()
+//        parser.setupParser()
+//        parser.delegate = self
+//        parser.parse()
+
+        tableView.reloadData()
                // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -71,8 +73,8 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     // MARK: ParserDelegate
     
     func recordHasBeenParsed(record:NewsRecord) {
-        feeds.append(record)
-        tableView .reloadData()
+//        feeds.append(record)
+//        tableView .reloadData()
     }
 
     
